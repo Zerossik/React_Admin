@@ -1,23 +1,16 @@
+import { lazyRoute } from "@/lib/lazyRoute";
+
 export const adminRoute = {
   path: "/admin",
-  lazy: async () => {
-    const { AdminLayout } = await import("@/pages/Admin/AdminLayout");
-    return { Component: AdminLayout };
-  },
+  lazy: lazyRoute(() => import("@/pages/Admin/AdminLayout"), "AdminLayout"),
   children: [
     {
       index: true,
-      lazy: async () => {
-        const { Dashboard } = await import("@/pages/Admin/Dashboard");
-        return { Component: Dashboard };
-      },
+      lazy: lazyRoute(() => import("@/pages/Admin/Dashboard"), "Dashboard"),
     },
     {
       path: ":slug/:id?",
-      lazy: async () => {
-        const { SlugPage } = await import("@/pages/Admin/SlugPage");
-        return { Component: SlugPage };
-      },
+      lazy: lazyRoute(() => import("@/pages/Admin/SlugPage"), "SlugPage"),
     },
   ],
 };

@@ -1,16 +1,15 @@
+import { lazyRoute } from "@/lib/lazyRoute";
+
 export const mainRoute = {
   path: "/",
-  lazy: async () => {
-    const { HomePageLayout } = await import("@/pages/Home/HomePageLayout");
-    return { Component: HomePageLayout };
-  },
+  lazy: lazyRoute(
+    () => import("@/pages/Home/HomePageLayout"),
+    "HomePageLayout"
+  ),
   children: [
     {
       index: true,
-      lazy: async () => {
-        const { MainPage } = await import("@/pages/Home/MainPage");
-        return { Component: MainPage };
-      },
+      lazy: lazyRoute(() => import("@/pages/Home/MainPage"), "MainPage"),
     },
   ],
 };
