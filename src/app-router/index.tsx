@@ -2,11 +2,12 @@ import { createBrowserRouter } from "react-router";
 import { RootLayout } from "./RootLayout";
 import { adminRoute, mainRoute } from "./routes";
 import { lazyRoute } from "@/lib/lazyRoute";
+import { Loader } from "@/components/Loader";
 
 export const router = createBrowserRouter([
   {
     element: <RootLayout />,
-    hydrateFallbackElement: <div>START ROOT LOADING...</div>,
+    hydrateFallbackElement: <Loader />,
     children: [
       mainRoute,
       adminRoute,

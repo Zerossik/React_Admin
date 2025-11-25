@@ -1,3 +1,4 @@
+import { Loader } from "@/components/Loader";
 import { Outlet, useNavigation } from "react-router";
 
 export const RootLayout = () => {
@@ -5,8 +6,7 @@ export const RootLayout = () => {
   const isLoading = navigation.state !== "idle";
   return (
     <>
-      {isLoading && <div>ROOT LOADING...</div>}
-
+      {isLoading && <Loader />}
       <Outlet />
     </>
   );
