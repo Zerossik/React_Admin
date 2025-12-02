@@ -1,14 +1,50 @@
-import { use } from "react";
+import { Activity, useRef, useState } from "react";
 import { Link } from "react-router";
+import css from "./style.module.scss";
+import clsx from "clsx";
+import { AnimatedActivity } from "@/components/AnimatedActivity";
 
-const sleep = new Promise((resolve) => setTimeout(() => resolve(1), 3000));
+const TestActivity = () => {
+  const [mode, setMode] = useState<boolean>(false);
+
+  const stringMode = mode ? "visible" : "hidden";
+
+  const handler = () => {
+    if (!mode) return setMode(true);
+
+    // setTimeout(() => {
+    setMode(false);
+    // }, 2000);
+  };
+
+  return (
+    <>
+      <button onClick={handler}>{stringMode}</button>;
+      <AnimatedActivity mode={stringMode} delay={2000}>
+        <div
+          className={clsx(css.content, mode ? css.visible : css.hidden)}
+          key={1}
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quidem
+          ducimus ipsa iste. Voluptates ullam molestias magni ducimus tempora
+          repellat voluptate minima est, commodi, vel impedit error nulla
+          laudantium ratione?
+        </div>
+        <p className="v h c" key={2}>
+          dsfhdsuhfsd
+        </p>
+        <p key={3}>dnfsfudsf</p>
+      </AnimatedActivity>
+    </>
+  );
+};
 
 export const Dashboard = () => {
-  console.log(use(sleep));
   return (
     <>
       <Link to="/admin/login"> TO Login</Link>
       <Link to="/admin/users"> TO Users</Link>
+      <TestActivity />
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti
         explicabo nihil quidem beatae aliquid expedita recusandae repellat
