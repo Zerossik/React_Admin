@@ -1,20 +1,15 @@
-import { Activity, type ReactNode } from "react";
-
+import { Activity, type ReactElement } from "react";
 import { useCollapsible } from "@/hooks/useCollapsible";
 
 type PropsType = {
-  children: ReactNode;
-  className?: string;
+  children: ReactElement<HTMLElement> | ReactElement<HTMLElement>[];
 };
 
-const Content = ({ className, children }: PropsType) => {
-  const { mode } = useCollapsible("Content");
+const Content = ({ children }: PropsType) => {
+  const { mode } = useCollapsible();
 
-  return (
-    <Activity mode={mode}>
-      <div className={className}>{children}</div>
-    </Activity>
-  );
+  const modeWithoutClosing = mode !== "hidden" ? "visible" : "hidden";
+  return <Activity mode={modeWithoutClosing}>{children}</Activity>;
 };
 
 export default Content;

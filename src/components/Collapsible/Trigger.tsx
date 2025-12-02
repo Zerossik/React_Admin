@@ -1,7 +1,5 @@
-import { clsx } from "clsx";
 import type { ReactNode } from "react";
 
-import css from "./style.module.scss";
 import { useCollapsible } from "@/hooks/useCollapsible";
 
 type PropsType = {
@@ -10,11 +8,11 @@ type PropsType = {
 };
 
 export const Trigger = ({ className, children }: PropsType) => {
-  const { toggle } = useCollapsible("Trigger");
+  const { toggle } = useCollapsible();
 
   return (
-    <div className={clsx(css.trigger, className)} onClick={() => toggle()}>
+    <button className={className} onClick={() => toggle()}>
       {children}
-    </div>
+    </button>
   );
 };

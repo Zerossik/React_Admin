@@ -1,7 +1,8 @@
 import { createContext } from "react";
+import type { Mode } from "./types";
 
 interface ContextType {
-  mode: "visible" | "hidden";
+  mode: Mode;
   open: () => void;
   close: () => void;
   toggle: () => void;
