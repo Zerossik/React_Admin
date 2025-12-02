@@ -1,9 +1,11 @@
+import { AdminHeader } from "@/components/AdminHeader";
 import { Outlet } from "react-router";
 
 export const AdminLayout = () => {
   return (
     <>
-      <header>Admin Header</header>
+      <title>admin</title>
+      <AdminHeader />
       <main>
         <Outlet />
       </main>

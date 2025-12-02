@@ -1,4 +1,5 @@
 @use "./utils/vars";
+@use "@styles/utils" as *;
 *,
 *::before,
 *::after {
@@ -50,6 +51,8 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  background-color: var(--background-secondary);
   font-size: 1rem;
 }
 
@@ -66,4 +69,22 @@ a {
 li,
 ol {
   list-style: none;
+}
+
+.hidden-mobile {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.hidden-tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @media (min-width: 1024px) {
+    display: none !important;
+  }
 }

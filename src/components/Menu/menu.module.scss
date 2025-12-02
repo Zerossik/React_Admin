@@ -1,0 +1,47 @@
+.menu {
+  &__inner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    width: 80%;
+    max-width: 320px;
+    height: 100%;
+    padding: var(--spacing-12);
+    padding-top: calc(var(--spacing-20) * 3);
+    background-color: var(--background-primary);
+    transition: all 0.2s linear;
+    z-index: 1000;
+
+    &:global(.visible) {
+      transform: translateX(0);
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 3px;
+      height: 100%;
+
+      background-color: var(--active-color);
+    }
+  }
+  &__open,
+  &__close {
+    background-color: transparent;
+    border: none;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
