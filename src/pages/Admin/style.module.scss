@@ -1,18 +1,7 @@
-.content {
-  background-color: red;
-  opacity: 1;
-  transition: all 2s linear;
-  overflow: hidden;
+.content .container {
+  position: relative;
+  display: flex;
+  gap: var(--spacing-20);
 
-  @starting-style {
-    opacity: 0;
-  }
-}
-
-.hidden {
-  opacity: 0;
-}
-
-.visible {
-  background-color: aqua;
+  padding-top: var(--spacing-64);
 }

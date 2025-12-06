@@ -1,18 +1,9 @@
-import type { ReactNode } from "react";
-
-import { useCollapsible } from "@/hooks/useCollapsible";
+import type { ReactElement } from "react";
 
 type PropsType = {
-  children: ReactNode;
-  className?: string;
+  children: ReactElement;
 };
 
-export const Trigger = ({ className, children }: PropsType) => {
-  const { toggle } = useCollapsible();
-
-  return (
-    <button className={className} onClick={() => toggle()}>
-      {children}
-    </button>
-  );
+export const Trigger = ({ children }: PropsType) => {
+  return <>{children}</>;
 };

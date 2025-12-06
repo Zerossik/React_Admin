@@ -1,0 +1,60 @@
+@use "@styles/utils" as *;
+
+$animation-speed: 0.1s;
+$sidebar-width: 280px;
+$sidebar-padding: var(--spacing-12);
+
+.sidebar {
+  position: relative;
+  display: none;
+
+  @include media-1024 {
+    display: inline-block;
+  }
+}
+
+.trigger {
+  position: absolute;
+  top: 0;
+  transform: translateY(calc(-100% - 10px));
+  margin-bottom: var(--spacing-8);
+  background-color: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  &__triggerIcon {
+    transition: transform $animation-speed linear;
+    width: 24px;
+    height: 24px;
+  }
+  &__icon_rotated {
+    transform: rotateY(180deg);
+  }
+}
+
+.content {
+  width: 0;
+
+  overflow: hidden;
+  transition: width $animation-speed linear;
+
+  &__inner {
+    width: $sidebar-width;
+    padding: $sidebar-padding;
+
+    min-height: 300px;
+    transform: translateX(-100%);
+
+    border-radius: var(--border-radius-12);
+    background: var(--background-primary);
+    transition: transform $animation-speed linear;
+  }
+}
+
+.content.visible {
+  .content__inner {
+    transform: translateX(0);
+  }
+
+  width: $sidebar-width;
+}

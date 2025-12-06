@@ -6,10 +6,13 @@ export const adminRoute = {
   children: [
     {
       index: true,
-      lazy: lazyRoute(() => import("@/pages/Admin/Dashboard"), "Dashboard"),
+      lazy: lazyRoute(
+        () => import("@/pages/Admin/Dashboard/Dashboard"),
+        "Dashboard"
+      ),
     },
     {
-      path: ":slug/:id?",
+      path: ":slug",
       lazy: lazyRoute(() => import("@/pages/Admin/SlugPage"), "SlugPage"),
     },
   ],

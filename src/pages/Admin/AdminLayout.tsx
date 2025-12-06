@@ -1,5 +1,9 @@
 import { AdminHeader } from "@/components/AdminHeader";
+import SideBar from "@/components/SideBar";
+import { Container } from "@/components/ui/Container";
 import { Outlet } from "react-router";
+
+import css from "./style.module.scss";
 
 export const AdminLayout = () => {
   return (
@@ -7,7 +11,14 @@ export const AdminLayout = () => {
       <title>admin</title>
       <AdminHeader />
       <main>
-        <Outlet />
+        <div className={css.content}>
+          <Container className={css.container}>
+            <SideBar />
+            <div>
+              <Outlet />
+            </div>
+          </Container>
+        </div>
       </main>
       <footer>Admin Footer</footer>
     </>
