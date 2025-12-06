@@ -19,7 +19,7 @@ export const Profile = ({
         </Link>
       </div>
       <Collapsible className={css.collapsible}>
-        <Collapsible.Trigger className={css.triggerButton}>
+        <Collapsible.Trigger>
           <TriggerButton />
         </Collapsible.Trigger>
         <Collapsible.Content>

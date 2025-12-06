@@ -1,0 +1,9 @@
+$page-bg: var(--background-primary);
+$page-padding: var(--spacing-12);
+
+.dashboard {
+  padding: $page-padding;
+
+  border-radius: var(--border-radius-12);
+  background-color: $page-bg;
+}
